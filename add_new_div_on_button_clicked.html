@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Div on Button Click</title>
+    <style>
+      .new_div {
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+      input {
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid;
+        border-radius: 10px;
+      }
+
+      button {
+        padding: 10px;
+        border: 2px solid;
+        border-radius: 10px;
+        background-color: rgb(0, 255, 51);
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      #container {
+        padding: 20px;
+        
+      }
+      h2 {
+        padding-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h2>CLICK BUTTON TO ADD NEW DIV</h2>
+      <input
+        type="text"
+        id="contentInput"
+        placeholder="Enter content for the new div"
+      />
+
+      <button onclick="addNewDiv()">Add New Div</button>
+    </div>
+
+    <script>
+      function addNewDiv() {
+        var content = document.getElementById("contentInput").value;
+
+        var newDiv = document.createElement("div");
+
+        newDiv.className = "new_div";
+
+        newDiv.innerHTML = content;
+
+        document.getElementById("container").appendChild(newDiv);
+
+        document.getElementById("contentInput").value = "";
+      }
+    </script>
+  </body>
+</html>

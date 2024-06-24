@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Preloader</title>
+</head>
+<style>
+    @keyframes heartbeat {
+        0%   { transform: scale(1); }
+        50%  { transform: scale(1.25); }
+        100% { transform: scale(1); }
+        }
+    * { margin: 0; padding: 0 }
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background:#f5f7fa;
+
+    }
+    .heart {
+      position: relative;
+      width: 100px;
+      height: 90px;
+      animation: heartbeat 1s linear infinite;
+    }
+  
+    .heart:before,
+    .heart:after {
+        content:"";
+        position: absolute;
+        background-color: rgb(255, 0, 0);
+        top: 0;
+        left: 50px;
+        width: 50px;
+        height: 80px;
+        border-radius: 50px 50px 0 0;
+        transform: rotate(-45deg);
+        transform-origin: 0 100%;
+    }
+  
+    .heart:after {
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin: 100% 100%; 
+    }
+
+</style>
+<body>
+    <div class="heart"></div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 50px;
+            min-height: 100vh;
+            margin-top: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .box {
+            width: 350px;
+            height: 350px;
+            background-color: #ffacac;
+            border-radius: 20%;
+        }
+
+        @keyframes i {
+            from {
+                opacity: 0;
+                scale: 0.5;
+            }
+            to {
+                opacity: 1;
+                scale: 1;
+            }
+        }
+
+        .box{
+            animation: i linear;
+            animation-timeline: view();
+            animation-range: entry 0 cover 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</body>
+</html>

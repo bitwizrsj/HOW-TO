@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dialogue Box</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #dialogueContainer {
+            display: none;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 300px;
+            text-align: center;
+            z-index: 999;
+        }
+
+        #closeButton {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="main">
+        <button onclick="openDialogue()">Open Dialogue</button>
+    </div>
+
+
+
+<div id="dialogueContainer">
+    <p>This is a sample dialogue box content.</p>
+    <button id="closeButton" onclick="closeDialogue()">Close</button>
+</div>
+
+<script>
+    function openDialogue() {
+        document.getElementById("dialogueContainer").style.display = "block";
+        document.getElementById("main"),style
+    }
+
+    function closeDialogue() {
+        document.getElementById("dialogueContainer").style.display = "none";
+    }
+</script>
+
+</body>
+</html>

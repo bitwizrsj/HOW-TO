@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 50px;
+            min-height: 100vh;
+            margin-top: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .box {
+            width: 350px;
+            height: 350px;
+            background-color: #ffacac;
+            border-radius: 20%;
+            transition: transform 0.5s, opacity 0.5s;
+        }
+
+        .box.hidden {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        .box.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const boxes = document.querySelectorAll('.box');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('hidden');
+                        entry.target.classList.add('visible');
+                    } else {
+                        entry.target.classList.remove('visible');
+                        entry.target.classList.add('hidden');
+                    }
+                });
+            }, observerOptions);
+
+            boxes.forEach(box => {
+                box.classList.add('hidden');
+                observer.observe(box);
+            });
+        });
+    </script>
+</body>
+</html>

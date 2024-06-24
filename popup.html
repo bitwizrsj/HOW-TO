@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>--- TODO ---</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/fontawesome.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- Leave those next 4 lines if you care about users using IE8 -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+<body>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#stuLoginModalCenter">
+        Open Login Modal
+    </button>
+    
+    <div class="modal fade" id="stuLoginModalCenter" tabindex="-1" role="dialog" aria-labelledby="stuLoginModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+              <h5 class="modal-title" id="stuLoginModalCenterTitle">Login</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="clearStuLoginWithStatus()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form role="form" id="stuLoginForm">
+                <div class="form-group">
+                  <label for="stuLogEmail" class="pl-2 font-weight-bold">Email</label>
+                  <small id="statusLogMsg1"></small>
+                  <input type="email" class="form-control" placeholder="Email" name="stuLogEmail" id="stuLogEmail">
+                </div>
+                <div class="form-outline form-white">
+                  <label for="stuLogPass" class="form-label">Password</label>
+                  <input type="password" class="form-control" placeholder="Password" name="stuLogPass" id="stuLogPass">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <small id="statusLogMsg"></small>
+              <button type="button" class="btn btn-dark Download-button" id="stuLoginBtn" onclick="checkStuLogin()">Login</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="clearStuLoginWithStatus()">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </body>
+  </html>

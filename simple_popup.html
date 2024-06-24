@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Popup Button</title>
+  <style>
+    /* Style for the popup */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+      padding: 20px;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Button to open the popup -->
+<button id="popupButton">Open Popup</button>
+
+<!-- The popup -->
+<div id="popup" class="popup">
+  <h2>Popup Content</h2>
+  <p>This is the content of the popup.</p>
+  <button id="closeButton">Close</button>
+</div>
+
+<script>
+  // Get the button and the popup
+  var button = document.getElementById('popupButton');
+  var popup = document.getElementById('popup');
+  var closeButton = document.getElementById('closeButton');
+
+  // Function to open the popup
+  function openPopup() {
+    popup.style.display = 'block';
+  }
+
+  // Function to close the popup
+  function closePopup() {
+    popup.style.display = 'none';
+  }
+
+  // Event listener for the button click
+  button.addEventListener('click', openPopup);
+
+  // Event listener for the close button click
+  closeButton.addEventListener('click', closePopup);
+</script>
+
+</body>
+</html>

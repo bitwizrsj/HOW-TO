@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            position: relative;
+            display: inline-block;
+            padding: 20px;
+        }
+        
+
+        button {
+            cursor: pointer;
+            padding: 10px;
+            background-color: rgb(220, 255, 47);
+            font-weight: bold;
+            border-radius: 10px;
+        }
+
+        ul,
+        a {
+            text-decoration: none;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+        }
+
+        .dropdown_content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+
+            
+        }
+
+        .main:hover .dropdown_content {
+            display: block;
+        }
+
+        .dropdown_content a:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <button>HOVER ME</button>
+        <div class="dropdown_content">
+            <ul>
+                <a href="#">HI</a>
+                <a href="#">IT'S</a>
+                <a href="#">ME</a>
+                <a href="#">BITWIZ</a>
+                <a href="#">RSJ</a>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

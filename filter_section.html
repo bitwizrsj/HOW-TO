@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter_Section</title>
+</head>
+<style>
+    #filter-section {
+        margin-bottom: 20px;
+      }
+      
+      #fruit-veg-select {
+        margin-right: 10px;
+      }
+      
+      #item-list {
+        list-style-type: none;
+        padding: 0;
+      }
+      
+      #item-list li {
+        margin-bottom: 5px;
+      }
+</style>
+<body>
+    <div id="filter-section">
+        <label for="fruit-veg-select">Filter by:</label>
+        <select id="fruit-veg-select">
+          <option value="all">All</option>
+          <option value="fruit">Fruit</option>
+          <option value="vegetable">Vegetable</option>
+        </select>
+      
+        <ul id="item-list"></ul>
+      </div>
+
+    <script>
+        const fruitVegSelect = document.getElementById('fruit-veg-select');
+const itemList = document.getElementById('item-list');
+
+// Sample data
+const items = [
+  { name: 'Apple', type: 'fruit' },
+  { name: 'Banana', type: 'fruit' },
+  { name: 'Carrot', type: 'vegetable' },
+  { name: 'Broccoli', type: 'vegetable' },
+];
+
+// Function to render items
+function renderItems(items) {
+  itemList.innerHTML = '';
+  items.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = item.name;
+    itemList.appendChild(li);
+  });
+}
+
+// Function to filter items
+function filterItems(event) {
+  const selectedType = event.target.value;
+  if (selectedType === 'all') {
+    renderItems(items);
+  } else {
+    const filteredItems = items.filter(item => item.type === selectedType);
+    renderItems(filteredItems);
+  }
+}
+
+// Event listener for select element
+fruitVegSelect.addEventListener('change', filterItems);
+
+// Initial render
+renderItems(items);
+    </script>
+</body>
+</html>
