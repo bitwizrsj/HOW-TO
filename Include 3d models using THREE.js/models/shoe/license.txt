@@ -1,0 +1,11 @@
+Model Information:
+* title:	Nike Air force 1
+* source:	https://sketchfab.com/3d-models/nike-air-force-1-dc13b616608342909c798d57a313798f
+* author:	freemen (https://sketchfab.com/lox148822847)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Nike Air force 1" (https://sketchfab.com/3d-models/nike-air-force-1-dc13b616608342909c798d57a313798f) by freemen (https://sketchfab.com/lox148822847) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
