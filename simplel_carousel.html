@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>carousel_with_card_always_in_center</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+</head>
+<style>
+    body{
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+    }
+    .wrapper{
+        display: flex;
+        width: 300px;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        gap: 10px;
+    }
+    .wrapper::-webkit-scrollbar {
+        display: none;
+    }
+    .card{
+        scroll-snap-align: center;
+        box-sizing: border-box;
+        flex-shrink: 0;
+        width: 300px;
+        border-radius: 10px;
+        background-color: palegreen;
+        text-align: center;
+    }
+    .controls {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 20px;
+    }
+    .controls button {
+        background-color: #fff;
+        border: none;
+        padding: 10px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    .controls button:hover {
+        background-color: #ddd;
+    }
+</style>
+<body>
+    <div class="controls">
+        <button id="prev" onclick="scrollPrev()">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button id="next" onclick="scrollNext()">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+    <div class="wrapper" id="wrapper">
+        <!-- Duplicated last card for seamless loop -->
+        <div class="card">
+            <h2>Card 5</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+        <div class="card">
+            <h2>Card 1</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+        <div class="card">
+            <h2>Card 2</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+        <div class="card">
+            <h2>Card 3</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+        <div class="card">
+            <h2>Card 4</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+        <div class="card">
+            <h2>Card 5</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+        <!-- Duplicated first card for seamless loop -->
+        <div class="card">
+            <h2>Card 1</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+    </div>
+
+    <script>
+        let wrapper = document.getElementById('wrapper');
+        let cardWidth = wrapper.offsetWidth + 10; // card width + gap
+
+        function scrollNext() {
+            wrapper.scrollBy({
+                left: cardWidth,
+                behavior: 'smooth'
+            });
+            setTimeout(checkScrollEnd, 500);
+        }
+
+        function scrollPrev() {
+            wrapper.scrollBy({
+                left: -cardWidth,
+                behavior: 'smooth'
+            });
+            setTimeout(checkScrollStart, 500);
+        }
+
+        function checkScrollEnd() {
+            if (wrapper.scrollLeft >= wrapper.scrollWidth - wrapper.offsetWidth) {
+                wrapper.scrollLeft = cardWidth;
+            }
+        }
+
+        function checkScrollStart() {
+            if (wrapper.scrollLeft <= 0) {
+                wrapper.scrollLeft = wrapper.scrollWidth - 2 * cardWidth;
+            }
+        }
+
+        wrapper.scrollLeft = cardWidth; // initial position
+    </script>
+</body>
+</html>
