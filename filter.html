@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Section</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    
+    .filter-section {
+        margin-bottom: 20px;
+    }
+    
+    .filters label {
+        display: block;
+        margin: 10px 0 5px;
+    }
+    
+    .filters input, .filters select {
+        padding: 5px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .item {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #f9f9f9;
+        width: calc(33.333% - 10px);
+        box-sizing: border-box;
+    }
+    
+    .item.hidden {
+        display: none;
+    }
+    
+</style>
+<body>
+    <div class="filter-section">
+        <h2>Filter Items</h2>
+        <div class="filters">
+            <label for="search">Search:</label>
+            <input type="text" id="search" name="search" placeholder="Search items...">
+
+            <label for="category">Category:</label>
+            <select id="category" name="category">
+                <option value="all">All</option>
+                <option value="category1">Category 1</option>
+                <option value="category2">Category 2</option>
+                <option value="category3">Category 3</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="items">
+        <div class="item" data-category="category1">Item 1</div>
+        <div class="item" data-category="category2">Item 2</div>
+        <div class="item" data-category="category1">Item 3</div>
+        <div class="item" data-category="category3">Item 4</div>
+        <div class="item" data-category="category2">Item 5</div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('search');
+            const categorySelect = document.getElementById('category');
+            const items = document.querySelectorAll('.item');
+        
+            function filterItems() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedCategory = categorySelect.value;
+        
+                items.forEach(item => {
+                    const itemName = item.textContent.toLowerCase();
+                    const itemCategory = item.getAttribute('data-category');
+        
+                    if (
+                        (itemName.includes(searchTerm) || searchTerm === '') &&
+                        (itemCategory === selectedCategory || selectedCategory === 'all')
+                    ) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+            }
+        
+            searchInput.addEventListener('input', filterItems);
+            categorySelect.addEventListener('change', filterItems);
+        });
+        
+    </script>
+</body>
+</html>
