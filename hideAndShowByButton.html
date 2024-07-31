@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .opt {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .options {
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .selected {
+            background-color: aqua;
+        }
+
+        .show {
+            width: 100%;
+            height: 100vh;
+            display: none; 
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="opt">
+        <div class="options" onclick="handleOptionClick(event)">1</div>
+        <div class="options" onclick="handleOptionClick(event)">2</div>
+        <div class="options" onclick="handleOptionClick(event)">3</div>
+        <div class="options" onclick="handleOptionClick(event)">4</div>
+        <div class="options" onclick="handleOptionClick(event)">5</div>
+        <div class="options" onclick="handleOptionClick(event)">6</div>
+        <div class="options" onclick="handleOptionClick(event)">7</div>
+        <button onclick="next()">next</button>
+    </div>
+
+    <div class="show">
+        <p>hi its me</p>
+    </div>
+
+    <script>
+        function handleOptionClick(event) {
+            const options = document.querySelectorAll('.options');
+            options.forEach(option => option.classList.remove('selected'));
+            event.currentTarget.classList.add('selected');
+        }
+
+        function next() {
+            const opt = document.querySelector('.opt');
+            const show = document.querySelector('.show');
+            opt.style.display = 'none'; 
+            show.style.display = 'flex'; 
+        }
+    </script>
+</body>
+</html>
