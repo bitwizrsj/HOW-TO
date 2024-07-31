@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .options{
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .selected{
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="options" onclick="handleOptionClick(event)">1</div>
+    <div class="options" onclick="handleOptionClick(event)">2</div>
+    <div class="options" onclick="handleOptionClick(event)">3</div>
+    <div class="options" onclick="handleOptionClick(event)">4</div>
+    <div class="options" onclick="handleOptionClick(event)">5</div>
+    <div class="options" onclick="handleOptionClick(event)">6</div>
+    <div class="options" onclick="handleOptionClick(event)">7</div>
+
+    <script>
+        function handleOptionClick(event) {
+            const options = document.querySelectorAll('.options'); // Corrected selector
+            options.forEach(option => option.classList.remove('selected'));
+            event.currentTarget.classList.add('selected');
+        }
+    </script>
+</body>
+</html>
