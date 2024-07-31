@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .opt {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .options {
+            display: none;
+        }
+
+        .options + label {
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .options:checked + label {
+            background-color: aqua;
+        }
+
+        .show {
+            width: 100%;
+            height: 100vh;
+            display: none; 
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="opt">
+        <input type="radio" id="option1" name="options" class="options" value="1">
+        <label for="option1">1</label>
+
+        <input type="radio" id="option2" name="options" class="options" value="2">
+        <label for="option2">2</label>
+
+        <input type="radio" id="option3" name="options" class="options" value="3">
+        <label for="option3">3</label>
+
+        <input type="radio" id="option4" name="options" class="options" value="4">
+        <label for="option4">4</label>
+
+        <input type="radio" id="option5" name="options" class="options" value="5">
+        <label for="option5">5</label>
+
+        <input type="radio" id="option6" name="options" class="options" value="6">
+        <label for="option6">6</label>
+
+        <input type="radio" id="option7" name="options" class="options" value="7">
+        <label for="option7">7</label>
+
+        <button onclick="next()">next</button>
+    </div>
+
+    <div class="show">
+        <p>hi its me and the selected number is: <span id="selectedNumber"></span></p>
+    </div>
+
+    <script>
+        function next() {
+            const selectedOption = document.querySelector('input[name="options"]:checked');
+            if (selectedOption) {
+                const opt = document.querySelector('.opt');
+                const show = document.querySelector('.show');
+                opt.style.display = 'none'; 
+                show.style.display = 'flex';
+                document.getElementById('selectedNumber').innerText = selectedOption.value;
+            } else {
+                alert('Please select an option.');
+            }
+        }
+    </script>
+</body>
+</html>
